@@ -1,0 +1,11 @@
+BarberShop/
+├── cliente/
+    ├── app.py
+    ├──static/
+    		├──img/
+    		├──barber1.jpg
+    		├──barber2.jpg
+    ├── templates/
+        ├── agendamentos.html
+        ├── estoque.html
+        ├── home.html

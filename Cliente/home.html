@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbershop - Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #333;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            padding-bottom: 80px; /* Espaço para o rodapé */
+        }
+        .btn-primary {
+            background-color: #ff6600;
+            border-color: #ff6600;
+            border-radius: 20px;
+        }
+        .btn-secondary {
+            background-color: #ff6600;
+            border-color: #ff6600;
+            border-radius: 20px;
+        }
+        .btn-primary:hover, .btn-secondary:hover {
+            background-color: #e65c00;
+            border-color: #e65c00;
+        }
+        .content {
+            display: flex;
+            height: 100vh; /* Faz com que a div ocupe a altura total da tela */
+        }
+        .content img {
+            width: 50vw; /* Faz com que a imagem ocupe 50% da largura da tela */
+            height: 100vh; /* Faz com que a imagem ocupe a altura total da tela */
+            object-fit: cover; /* Garante que a imagem cubra toda a área disponível */
+            border-radius: 0; /* Remove o arredondamento dos cantos */
+        }
+        .text-container {
+            width: 50vw; /* Faz com que o container de texto ocupe 50% da largura da tela */
+            padding: 2rem; /* Adiciona um pouco de espaçamento ao redor do texto */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centraliza verticalmente o conteúdo */
+        }
+        .text-container h1 {
+            font-size: 3rem;
+            font-weight: 600;
+        }
+        .text-container p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        header, footer {
+            text-align: center;
+            padding: 1rem; /*fonte rodapé */
+            background-color: #444;
+        }
+        header h2 {
+            font-size: 1.0rem; /*fonte do cabeçalho */
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>Sistema de gerenciamento - Agendas e Estoque</h2>
+    </header>
+    <div class="container">
+        <div class="content mt-4">
+            <img src="{{ url_for('static', filename='img/barber1.jpeg') }}" alt="Imagem da Barbearia">
+            <div class="text-container">
+                <h1>Barbershop</h1>
+                <p>Escolha seu destino</p>
+                <a href="{{ url_for('agendamentos') }}" class="btn btn-primary btn-lg mb-2">Gerenciar Agendamentos</a>
+                <a href="{{ url_for('estoque') }}" class="btn btn-secondary btn-lg">Gestão de Estoque</a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>Todos os direitos reservados a barberShop.Ltda</p>
+    </footer>
+</body>
+</html>

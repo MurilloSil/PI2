@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbershop - Agendamentos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 20px;
+        }
+        .search-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-right: 1px solid #dee2e6;
+        }
+        .data-section {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 search-section">
+                <h2>Pesquisar</h2>
+                <form method="POST" action="{{ url_for('agendamentos') }}">
+                    <div class="form-group">
+                        <label for="data">Data</label>
+                        <input type="date" class="form-control" id="data" name="data">
+                    </div>
+                    <div class="form-group">
+                        <label for="mes">Mês</label>
+                        <input type="month" class="form-control" id="mes" name="mes">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Pesquisar</button>
+                </form>
+                <a href="{{ url_for('home') }}" class="btn btn-secondary mt-3">Voltar para Home</a>
+            </div>
+            <div class="col-md-8 data-section">
+                <h2>Agendamentos</h2>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Hora</th>
+                            <th>Descrição</th>
+                            <th>Cliente</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for agendamento in agendamentos %}
+                        <tr>
+                            <td>{{ agendamento[1] }}</td>
+                            <td>{{ agendamento[2] }}</td>
+                            <td>{{ agendamento[4] }}</td>
+                            <td>{{ agendamento[3] }}</td>
+                            <td>
+                                <form action="{{ url_for('delete', id=agendamento[0]) }}" method="post">
+                                    <button type="submit" class="btn btn-danger">Excluir</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
